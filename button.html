@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <title>A button</title>
+    </head>
+    <body>
+        <form>
+          <input type="button" id="doSomething" value="Do Something" />
+          <input type = "text" id= "userinput" />
+          <label id="sometext">Here are some text</label>
+        </form>
+    </body>
+    <footer>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script language="javascript">
+            $(document).ready(function() {
+                 console.log(e.keycode);
+                 if (e.keycode ==13) {
+                     return false;
+                 }
+                });
+
+                $('#userInput').on('keyup', function(e) {
+                    if (e.keycode == 13) {
+                        dosomething
+                    }
+                });
+
+                $('#doSomething').on('click', function() {
+                    let enteredValue = $('#userInput').val();
+                    let ValueAsNumber = parseInt(enteredValue);
+                    if (isNaN(valueAsNumber)) {
+                        $('#sometext').text("That is not a Number!");
+                        $('#sometext').css('background','blue');
+                    } else {
+                        if(valueAsNumber < 500) {
+                            $('#sometext').css('background-color','red');
+                        } else {
+                            $('#sometext').css('background-color','green');
+                        }
+                        $('#sometext').text("You have entered: "+ valueAsNumber);
+                    }
+                    $('#sometext').text($('#userInput').val());
+                    $('#sometext').text("some other text");
+                    $('#sometext').css('color', 'white');
+                    $('#sometext').css('background', 'black');
+                    let foo =[100,200,300,400,500];
+                    let total = 0;
+                    for(var i = 0; i< foo.length; i++) {
+                        //total = total + foo[i];
+                        total += foo[i];
+                    }
+                    console.log(total);
+                });
+
+                var dosomething = function() {
+                    let enteredValue = $('#userInput').val();
+                    let ValueAsNumber = parseInt(enteredValue);
+                    if (isNaN(valueAsNumber)) {
+                        $('#sometext').text("That is not a Number!");
+                        $('#sometext').css('background-color','blue');
+                    } else {
+                        if(valueAsNumber < 500) {
+                            $('#sometext').css('background-color','red');
+                        } else {
+                            $('#sometext').css('background-color','green');
+                        }
+                        $('#sometext').text("You have entered: "+ valueAsNumber);
+                    }
+                };
+        </script>
+    </footer>
+</html>
