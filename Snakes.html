@@ -6,8 +6,8 @@
 <style>
 body
 {
-    background:rgb(0, 0, 0);
-    color:#FFF;
+    background:rgb(6, 6, 20);
+    color:rgb(255, 255, 255);
 }
 canvas
 {
@@ -186,7 +186,7 @@ window.onload = function(){
         function feed()
         {
             ctx.beginPath();
-            ctx.fillStyle = "#ff0000";
+            ctx.fillStyle = "#00FF00";
             ctx.fillRect(food[0],food[1],15,15);
             ctx.fill();
             ctx.closePath();
@@ -194,7 +194,7 @@ window.onload = function(){
         function createfood()
         {
             // food = [Math.round(Math.random(790)*260), Math.round(Math.random(500)*400)];
-            food = [Math.round(Math.random()*(canvas.width - 100)), Math.round(Math.random()*(canvas.height - 100))];
+            food = [Math.round(Math.random()*(canvas.width - 80)), Math.round(Math.random()*(canvas.height - 80))];
         }
         function is_catched(ax,ay,awidth,aheight,bx,by,bwidth,bheight) {
             return !(
@@ -213,11 +213,12 @@ window.onload = function(){
                     document.getElementById('pause').disabled='true';
                     snake.game.status=false;
                     ctx.clearRect(0,0,canvas.width,canvas.height);
-                    ctx.font='40px san-serif';
-                    ctx.fillText('Game Over',300,250);
+                    ctx.font='80px san-serif';
+                    ctx.fillStyle='#ff0000'
+                    ctx.fillText('Game Over',310,260);
                     ctx.font = '20px san-serif';
                     ctx.fillStyle='#000000';
-                    ctx.fillText('To Play again Refresh the page or click the Restarts button',200,300);
+                    ctx.fillText('To Play again Refresh the page or click the Restarts button',260,320);
                     throw ('Game Over');
             }
             else
@@ -254,11 +255,11 @@ window.onload = function(){
         {
             ctx.fillStyle='#000000';
             ctx.fillRect(0,0,canvas.width,canvas.height);
-            ctx.fillStyle='#ffffff';
-            ctx.font='italic 100px Trajan™';
-            ctx.fillText('Nibbles',350,300);
-            ctx.font='35px helvatica';
-            ctx.fillText('Use the arrow keys to move snake',240,420);
+            ctx.fillStyle='#FFA500';
+            ctx.font='italic 250px Trajan™';
+            ctx.fillText('Nibbles',120,300);
+            ctx.font='30px helvatica';
+            ctx.fillText('Use the arrow keys to move snake',285,550);
             var img = new Image();
             img.onload = function()
             {
