@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Nibbles</title>
+<title>Snake Game</title>
 <style>
 body
 {
@@ -11,7 +11,7 @@ body
 }
 canvas
 {
-    background:rgb(160, 120, 11);
+    background:#845218;
 }
 #controls
 {
@@ -62,6 +62,7 @@ window.onload = function(){
             };
         function adjust()
         {
+
             if (document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement )
             {
                 canvas.width=window.innerWidth;
@@ -70,12 +71,12 @@ window.onload = function(){
             }
             else
             {
-                canvas.width=850;
+                canvas.width=1000;
                 canvas.height=600;
                 control.style.display='inline';
             }
         }
-        var food = [Math.round(Math.random(500)*(canvas.width - 10)), Math.round(Math.random(500)*(canvas.height - 10)),];
+        var food = [Math.round(Math.random()*(canvas.width - 10)), Math.round(Math.random()*(canvas.height - 10))];
         function todraw()
         {
             for(var i = 0; i < pos.length; i++)
@@ -130,7 +131,7 @@ window.onload = function(){
             todraw();
             giveLife();
             feed();
-            if(is_catched(pos[0][0]*block,pos[0][1]*block,block,block,food[0],food[1],10,10))
+            if(is_catched(pos[0][0]*block,pos[0][1]*block,block,block,food[0],food[1],15,15))
             {
                 score += 10;
                 createfood();
@@ -186,13 +187,14 @@ window.onload = function(){
         {
             ctx.beginPath();
             ctx.fillStyle = "#ff0000";
-            ctx.fillRect(food[0],food[2],15,15);
+            ctx.fillRect(food[0],food[1],15,15);
             ctx.fill();
             ctx.closePath();
         }
         function createfood()
         {
-            food = [Math.round(Math.random(500)*250), Math.round(Math.random(500)*300)];
+            // food = [Math.round(Math.random(790)*260), Math.round(Math.random(500)*400)];
+            food = [Math.round(Math.random()*(canvas.width - 100)), Math.round(Math.random()*(canvas.height - 100))];
         }
         function is_catched(ax,ay,awidth,aheight,bx,by,bwidth,bheight) {
             return !(
@@ -253,8 +255,8 @@ window.onload = function(){
             ctx.fillStyle='#000000';
             ctx.fillRect(0,0,canvas.width,canvas.height);
             ctx.fillStyle='#ffffff';
-            ctx.font='italic 80px Trajan™';
-            ctx.fillText('Nibbles - Snake Game',130,280);
+            ctx.font='italic 100px Trajan™';
+            ctx.fillText('Nibbles',350,300);
             ctx.font='35px helvatica';
             ctx.fillText('Use the arrow keys to move snake',240,420);
             var img = new Image();
@@ -283,7 +285,7 @@ window.onload = function(){
 </script>
 </head>
 <body>
-<canvas width="1000" height="600" id="canvas" style="border:4px solid rgb(185, 46, 46);" onclick="snake.game.begin();">
+<canvas width="1000" height="600" id="canvas" style="border:4px solid #00EFFF;" onclick="snake.game.begin();">
 </canvas>
 <div id="controls" style="float:right; text-align:center;">
     <input type="button" id="pause" value="Play" onClick="snake.game.pause(this);" accesskey="p">
