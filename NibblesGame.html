@@ -6,12 +6,11 @@
 <style>
 body
 {
-    background:rgb(6, 6, 20);
+    background:rgb(0, 0, 0);
     color:rgb(255, 255, 255);
 }
-canvas
-{
-    background:#845218;
+canvas{
+background: linear-gradient( green, white);
 }
 #controls
 {
@@ -186,7 +185,7 @@ window.onload = function(){
         function feed()
         {
             ctx.beginPath();
-            ctx.fillStyle = "#00FF00";
+            ctx.fillStyle = "#FF0000";
             ctx.fillRect(food[0],food[1],15,15);
             ctx.fill();
             ctx.closePath();
@@ -214,7 +213,7 @@ window.onload = function(){
                     snake.game.status=false;
                     ctx.clearRect(0,0,canvas.width,canvas.height);
                     ctx.font='80px san-serif';
-                    ctx.fillStyle='#ff0000'
+                    ctx.fillStyle='#FF0000'
                     ctx.fillText('Game Over',310,260);
                     ctx.font = '20px san-serif';
                     ctx.fillStyle='#000000';
@@ -253,7 +252,7 @@ window.onload = function(){
         }
         function start()
         {
-            ctx.fillStyle='#000000';
+            ctx.fillStyle='#05051F';
             ctx.fillRect(0,0,canvas.width,canvas.height);
             ctx.fillStyle='#FFA500';
             ctx.font='italic 250px Trajan™';
